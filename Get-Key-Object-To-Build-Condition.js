@@ -16,18 +16,8 @@ const buildCondtionsV2 = (query) => {
             case 'search_text':
                 conditions.$and.push({
                     $or: [
-                        {
-                        'barcode': {
-                            $regex: query.search_text,
-                            $options: "i"
-                        }
-                        },
-                        {
-                        'reference_codes': {
-                            $regex: query.search_text,
-                            $options: "i"
-                        }
-                        }
+                        { 'barcode': { $regex: query.search_text, $options: "i" }},
+                        { 'reference_codes': { $regex: query.search_text, $options: "i" }}
                     ]
                     });
                 break;
